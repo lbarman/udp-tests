@@ -26,6 +26,7 @@ func readMulticast(a string, h func(*net.UDPAddr, int, []byte)) {
 		log.Fatal(err)
 	}
 	l, err := net.ListenMulticastUDP("udp", nil, addr)
+	log.Println(l)
 	l.SetReadBuffer(maxDatagramSize)
 	for {
 		b := make([]byte, maxDatagramSize)
